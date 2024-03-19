@@ -1,0 +1,32 @@
+﻿@model List<WebApplication5.DTO.UserList>
+
+<h1>User List</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Role</th>
+           <th>Action</th> 
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+                    <tr>
+                        <td>@user.Id</td>
+                        <td>@user.firstname</td>
+                        <td>@user.lastname</td>
+                        <td>@user.email</td>
+                         <td>@string.Join(", ", user.Role)</td>
+                             <td>
+          <a asp-action="EditUser" asp-route-id="@user.Id" class="btn btn-outline-secondary">Edit</a> 
+          <a asp-action="DeleteUser" asp-route-id="@user.Id" class="btn btn-outline-danger">Delete</a> 
+    </td>
+                    </tr>
+        }
+    </tbody>
+</table>

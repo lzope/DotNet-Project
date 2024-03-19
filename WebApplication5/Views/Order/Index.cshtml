@@ -1,0 +1,32 @@
+﻿@model OrderEntity
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action ="InitiateOrder">
+            <div class="form-group">
+            <label asp-for="CourseName" class="form-control"></label>
+            <input asp-for="CourseName" class="form-control" />
+            </div>
+
+            <div class="form-group">
+            <label asp-for="CourseDuration" class="form-control"></label>
+            <input asp-for="CourseDuration" class="form-control"/>
+            </div>
+
+         @*    <div class="form-group">
+            <label asp-for="CourseFees" class="form-control"></label>
+            <input asp-for="CourseFees" class="form-control" />
+            </div> *@
+
+            <div class="form-group">
+            <label asp-for="CourseFees" class="form-control"></label>
+            <input asp-for="CourseFees" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Continue to pay" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+
+</div>

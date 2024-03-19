@@ -1,0 +1,94 @@
+﻿ @model IEnumerable<WebApplication5.Models.SalesLeadEntity>
+
+
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Courses</h1>
+
+<p>
+    <a asp-action="Create">Add New Course</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseDuration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseFees)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+                    <tr>
+                        <td>
+                    @Html.DisplayFor(modelItem => item.CourseName)
+                        </td>
+                        <td>
+                    @Html.DisplayFor(modelItem => item.CourseDuration)
+                        </td>
+                        <td>
+                    @Html.DisplayFor(modelItem => item.CourseFees)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>|
+                    @*                             <a asp-action="Select" asp-route-id="@item.Id">Select</a>
+ *@                     
+                        <a href="https://localhost:7192/Order?id=@item.Id">Pay</a>
+                    
+                    @*  <input type="submit" value="Select" class="btn btn-primary select-button" style="padding: 8px 10px; font-size: 12px;" /> *@
+                    @*  <form id="selectForm" asp-action="Select" asp-controller="Lead" method="post">
+                                    <input type="hidden" id="selectedCourseId" name="selectedCourseId" />
+                                        <input type="button" value="Select" class="btn btn-primary select-button" onclick="selectCourse('@item.Id')" style="padding: 5px 10px; font-size: 12px;" />
+                               </form> *@
+                        </td>
+                    </tr>
+        }
+    </tbody>
+</table>
+
+@* @section Scripts {
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var selectButtons = document.querySelectorAll('.select-button');
+
+                selectButtons.forEach(function (button) {
+                    button.addEventListener('click', function () {
+                        alert('Course Added Successfully');
+                    });
+                });
+            });
+        </script> *@
+@section Scripts {
+            <script>
+                function selectCourse(courseId) {
+                    // Set the selected course ID in the hidden field
+                    document.getElementById('selectedCourseId').value = courseId;
+
+                    // Submit the form
+                    document.getElementById('selectForm').submit();
+                }
+                     document.addEventListener('DOMContentLoaded', function () {
+                        var selectButtons = document.querySelectorAll('.select-button');
+
+                        selectButtons.forEach(function (button) {
+                            button.addEventListener('click', function () {
+                                alert('Course Added Successfully');
+                            });
+                        });
+                    });
+            </script>
+}

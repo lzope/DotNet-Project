@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Details</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+<body>
+
+<div class="container" >
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Payment Details for @Model.CourseName</h2>
+                    <div class="form-group">
+                        <label for="courseDuration">Course Duration:</label>
+                        <input type="text" id="courseDuration" class="form-control" value="@Model.CourseDuration" readonly />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="courseFees">Course Fees:</label>
+                        <input type="text" id="courseFees" class="form-control" value="@Model.CourseFees" readonly />
+                    </div>
+
+                    <!-- Payment form fields (e.g., credit card information) can be added here -->
+
+                    <div class="form-group">
+                        <label for="paymentAmount">Payment Amount:</label>
+                        <input type="text" id="paymentAmount" class="form-control" value="@Model.CourseFees" readonly />
+                    </div>
+
+                    <!-- Remove PDF generation and add redirection onclick -->
+                    <button id="generatePdfButton" class="btn btn-primary btn-block" onclick="redirectToPayment()">Payment</button>
+                </div>
+
+            </div>
+        </div>
+    </div> 
+
+
+</div>
+</div>
+
+<script>
+    function redirectToPayment() {
+        // Redirect to the InitiateOrder action
+        window.location.href = '/Order/InitiateOrder';
+    }
+</script>
+
+</body>
+</html> 
